@@ -1,0 +1,35 @@
+Source: tar
+Section: utils
+Priority: required
+Maintainer: Bdale Garbee <bdale@gag.com>
+Uploaders: Carl Worth <cworth@cworth.org>
+Build-Depends: debhelper (>> 5), gettext, autoconf, autotools-dev, libacl1-dev, libattr1-dev, libselinux1-dev [linux-any]
+Standards-Version: 3.9.5
+Vcs-Git: git://git.gag.com/debian/tar
+Vcs-Browser: http://git.gag.com/?p=debian/tar
+
+Package: tar
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${shlibs:Depends}, ${misc:Depends}
+Essential: yes
+Conflicts: cpio (<= 2.4.2-38)
+Replaces: cpio (<< 2.4.2-39)
+Breaks: dpkg-dev (<< 1.14.26)
+Suggests: bzip2, ncompress, xz-utils, tar-scripts
+Description: GNU version of the tar archiving utility
+ Tar is a program for packaging a set of files as a single archive in tar
+ format.  The function it performs is conceptually similar to cpio, and to
+ things like PKZIP in the DOS world.  It is heavily used by the Debian package
+ management system, and is useful for performing system backups and exchanging
+ sets of files with others.
+
+Package: tar-scripts
+Architecture: any
+Priority: optional
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: dump, openafs-client
+Description: optional scripts for GNU version of the tar archiving utility
+ This package provides the backup, restore, backup.sh, and dump-remind
+ scripts that are mentioned in the tar documentation. 
